@@ -1,23 +1,30 @@
-//lire les contenu de la balise h1
+function calculer(event) {
+    console.log("Effectuer un calcul");
+    event.preventDefault();
+    const firstNumber = document.getElementById("premierEntier");
+    const valueOfFirstNumber = firstNumber.value;
+    console.log(valueOfFirstNumber);
 
-/**
- * 
-getElementsByTagName: recuperer chacun des elements qui ont uun nom precis
-contentOfH1tags: recuperer le contenu de tous les h1.
- */
-const contentOfH1tags=document.getElementsByTagName("h1");
+    const secondNumber = document.getElementById("deuxiemeEntier");
+    const valueOsecondNumber = secondNumber.value;
+    console.log(valueOsecondNumber);
 
-/**
- * Afficher le contenu des balises h1
- */
-console.log(contentOfH1tags);
+    const operation = document.getElementById("operation");
+    const valueOfoperation = operation.value;
+    console.log(valueOfoperation);
 
-/**
- * le contenu de la premiere balise h1
- */
-const firstH1=contentOfH1tags[0];
-console.log(firstH1.innerHTML);
+    let result = 0;
 
-const button =document.getElementById("calculer");
-const buttonLabel=button.innerText;
-console.log(buttonLabel);
+    if (valueOfoperation == 1) {
+        result = 1 * valueOfFirstNumber + 1 * valueOsecondNumber;
+    }
+    else
+        if (valueOfoperation == 2) {
+            result = Number(valueOfFirstNumber) * Number(valueOsecondNumber);
+        }
+
+        else
+            result = Number(valueOfFirstNumber) % Number(valueOsecondNumber);
+
+    document.getElementById("result").innerHTML = result;
+}
